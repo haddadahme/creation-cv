@@ -1,0 +1,147 @@
+body
+{
+    background: url('images/background.jpg');
+    width:100%;
+    height:100%;
+    background-attachment:fixed;
+
+    
+
+}
+
+
+
+
+
+
+header
+{
+    background: url('images/separateur.png') repeat-x bottom;
+    
+    display: inline;
+    width: 50%;
+    border: red,solid;
+
+}
+header hr{
+   border: 10px solid #ffffff;
+  border-radius: 5px;
+}
+
+#titre_principal
+{
+    display: flex;
+    flex-direction: column;
+}
+
+
+#noo{
+    margin-left: 5%;
+    font-size: 20px;
+    color: red;
+
+}
+
+
+header p
+{
+    
+
+ text-decoration: none;
+ color:#ff3300;
+ font-style: bold;
+ font-size:2.5em;
+
+
+}
+
+#bloc{
+   position:relative;
+     
+
+ 
+ width: 90%;
+ height:90%;
+ 
+   margin-left: auto; 
+    margin-right: auto;  
+
+ 
+}
+#comp{
+    width:200px;
+    height:280px;
+    position:relative;
+    left:2px;
+    
+    top:1.5em;
+    
+     padding-left: 4em;
+
+
+}
+#cont{
+    width:200px;
+    height:280px;
+    position:absolute; 
+    right:13em; 
+    top: 1px;
+
+}
+h1{
+    color: green;
+
+
+}
+h2{
+    padding-left: 2em;
+    color: #3333ff;
+    font-size:2em;
+}
+ul{
+list-style-type: square;
+
+
+ padding-left: 100px;
+
+}
+li{
+    font-size: 1.5em;
+    color: #000000;
+
+}
+ol{
+    list-style-type: upper-roman;
+     font-size: 1.5em;
+    color: #000000;
+    padding-left: 100px;
+}
+.jj{
+    color: blue;
+}
+.cnt{
+    color: #000000;
+}
+.form{
+    padding-left: 30px;
+
+
+}
+#mp{
+    font-size: 23px;
+    color:#000000;
+}
+#zer{
+
+    text-decoration-style: bold;
+    margin: auto;
+    padding-left: 40%;
+}
+#rt{
+    color: blue;
+    font-size: 20px;
+    padding-left: 38%;
+}
+
+
+

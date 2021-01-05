@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>cv</title>
+	<meta charset="utf-8">
+
+	<link rel="stylesheet" type="text/css" href="stl.css">
+	<script type="text/javascript" >
+		function surligne(champ, erreur)
+{
+   if(erreur)
+      champ.style.backgroundColor = "#fba";
+   else
+      champ.style.backgroundColor = "";
+}
+function verifnompre(champ,id){
+
+	var regex=/[^A-Za-z]/;
+
+	   if(champ.value==""){
+	   	 surligne(champ, true);
+      document.getElementById(id).innerHTML ="saisir votre "+champ.name+"!";
+      return false;
+
+	   }
+   if((regex.test(champ.value))||(champ.value==""))
+   {
+      surligne(champ, true);
+      document.getElementById(id).innerHTML ="Vérifie votre"+champ.name;
+      return false;
+   }
+   else
+   {
+      surligne(champ, false);
+      document.getElementById(id).innerHTML ="";
+      return true;
+   }
+}
+function veriftel(champ) {
+	var regex=/^[0-9]{8}/gi;
+
+	   if(champ.value==""){
+	   	 surligne(champ, true);
+      document.getElementById('t').innerHTML ="saisir votre numero!";
+      return false;
+
+	   }
+	if((!regex.test(champ.value))||(champ.value.length >8))
+   {
+      surligne(champ, true);
+      document.getElementById('t').innerHTML ="Vérifie votre numero ";
+      return false;
+   }
+   else
+   {
+      surligne(champ, false);
+      document.getElementById('t').innerHTML ="";
+      return true;
+   }
+
+
+}
+function verifMail(champ)
+{
+   var regex = /^[a-zA-Z0-9._-]+@[a-z0-9._-]{2,}\.[a-z]{2,4}$/;
+
+	   if(champ.value==""){
+	   	 surligne(champ, true);
+      document.getElementById('e').innerHTML ="saisir votre email!";
+      return false;
+
+	   }
+   if(!regex.test(champ.value))
+   {
+      surligne(champ, true);
+      document.getElementById('e').innerHTML ="Vérifie votre email";
+      return false;
+   }
+   else
+   {
+      surligne(champ, false);
+      document.getElementById('e').innerHTML ="";
+      return true;
+   }
+}
+function verifvid(champ,id){
+	
+	
+
+
+
+   if(champ.value=="")
+   {
+      surligne(champ, true);
+      document.getElementById(id).innerHTML = "saisir votre " +champ.name+"!";
+      return false;
+   }
+   else
+   {
+      surligne(champ, false);
+      document.getElementById(id).innerHTML ="";
+      return true;
+   }
+}
+function verifage(champ) {
+	var regex=/^[0-9]{2}/gi;
+
+	   if(champ.value==""){
+	   	 surligne(champ, true);
+      document.getElementById('ag').innerHTML ="saisir votre age!";
+      return false;
+
+	   }
+	if((!regex.test(champ.value))||(champ.value.length >2))
+   {
+      surligne(champ, true);
+      document.getElementById('ag').innerHTML ="Vérifie votre age";
+      return false;
+   }
+   else
+   {
+      surligne(champ, false);
+      document.getElementById('ag').innerHTML ="";
+      return true;
+   }
+
+
+}
+function verifForm(f)
+{
+
+   var nomOk = verifnompre(f.Nom,'n');
+   var mailOk = verifMail(f.email);
+   var prenomOk = verifnompre(f.Prénom,'p');
+   var adrok= verifvid(f.adr,"a");
+   var ageok =verifage(f.age);
+   var telok= veriftel(f.tel);
+   
+   if(nomOk && mailOk && prenomOk && adrok && adrok && ageok && ptok && telok){
+      return true;}
+   
+   else
+   {
+      alert("Veuillez remplir correctement tous les champs");
+      return false;
+   }
+}
+	</script>
+</head>
+<body>
+	<div id="bloc">
+
+	<header>
+       <h1>Bienvenue remplire les champs pour créer votre cv  </h1>
+        
+	</header>
+	<form action="xxv.php" method="post"  onsubmit=" return  verifForm(this)" enctype="multipart/form-data">
+		<table>
+		<tr><td><label>Nom:</label></td><td><input type="text" name="Nom" onblur="verifnompre(this,'n')"><span id="n"></span></td></tr>
+		<tr><td><label>Prénom:</label></td><td><input type="text" name ="Prénom" onblur="verifnompre(this,'p')"><span id="p"></span></td></tr>
+		<tr><td><label>Âge:</label></td><td><input type="text" name="age" onblur="verifage(this)"><span id="ag"></span></td></tr>
+		<tr><td><label>Téléphone:</label></td><td><input type="text" name ="tel" onblur="veriftel(this)"><span id="t"></span></td></tr>
+		<tr><td><label>Votre image:</label></td><td><input  type="file" name="img"></td></tr>
+		<tr><td><label>Email:</label></td><td><input type="text" name="email"onblur="verifMail(this)"><span id="e"></span></td></tr>
+		<tr><td><label>Addréss:</label></td><td><input type="text" name="adr" onblur="verifvid(this,'a')"><span id="a"></span></td></tr>
+		
+		<tr><td><label>Diplôme:</label></td><td><select name="dp">
+			
+			<option>Licence Fondamentale</option>
+			<option>Licence Appliquée</option>
+			<option>Master de recherche</option>
+			<option>Master pro</option>
+			<option>Ingénierie</option>
+			<option>Doctorat</option>
+		</select></td></tr>
+		<tr><td><label>Domaine:</label></td><td><select name="dmn">
+			<option>Info</option>
+			<option>Info Industrielle</option>
+			<option>Telecom</option>
+			<option>Multimedia</option>
+			<option>Réseaux Informatique</option>
+			
+		</select></td></tr>
+		
+		<hr>
+		<tr><td>Professionnelles:</td>
+			<td> <hr><input type="checkbox" name="al[]" value="HTML"> HTML<br>
+                <input type="checkbox" name="al[]" value="CSS"> CSS<br>
+                <input type="checkbox" name="al[]" value="JS"> JS<br>
+                <input type="checkbox" name="al[]" value="PHP"> PHP<br>
+                <input type="checkbox" name="al[]" value="MYSQL"> MYSQL<br>
+                <input type="checkbox" name="al[]" value="C"> C<br>
+                <input type="checkbox" name="al[]" value="C++"> C++<br>
+                <input type="checkbox" name="al[]" value="C#"> C#<br>
+                <input type="checkbox" name="al[]" value="PYTHON"> PYTHON<br>
+
+
+
+			</td>
+
+		</tr>
+		<tr><td>Langues:</td>
+            <td><hr>
+            	<input type="checkbox" name="la[]" value="Anglais" > Anglais<br>
+                <input type="checkbox" name="la[]" value="Français"> Français<br>
+                <input type="checkbox" name="la[]" value="Allemand"> Allemand<br>
+                <input type="checkbox" name="la[]" value="Italien"> Italien<br>
+                <input type="checkbox" name="la[]" value="Espagnol"> Espagnol<br>
+                <input type="checkbox" name="la[]" value="Arabe"> Arabe<br>
+
+            </td>
+
+		</tr>
+		<tr><td>Formation:</td>
+            <td> <hr><textarea cols="40" rows="10" name="for"></textarea></td>
+		</tr>
+		<tr><td>Experience:</td>
+            <td><hr><textarea cols="40" rows="10" name="exp"></textarea></td>
+		</tr>
+		<tr><td><input type="submit" name="bot"value="envoyer" id="bot"></td></tr>
+
+		
+		
+
+		</table>
+		
+	</form>
+</div>
+</body>
+</html>
